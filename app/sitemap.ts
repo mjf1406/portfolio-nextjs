@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getBlogPosts } from 'app/blog/utils';
 
-export const baseUrl = 'https://mr-monkeky-portfolio.vercel.app';
+export const baseUrl = 'https://mr-monkey-portfolio.vercel.app';
 
 // Update this to the `app` directory if you're using Next.js `app` router
 const pagesDirectory = path.join(process.cwd(), 'app');
