@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getBlogPosts } from 'app/blog/utils';
 
-export const baseUrl = 'https://portfolio-nextjs-beige-one.vercel.app/';
+export const baseUrl = 'https://portfolio-nextjs-beige-one.vercel.app';
 
 // Update this to the `app` directory if you're using Next.js `app` router
 const pagesDirectory = path.join(process.cwd(), 'app');
@@ -14,26 +14,30 @@ function getStaticRoutes(dir = pagesDirectory) {
   let routes: { url: string; lastModified: string }[] = [];
 
   files.forEach((file) => {
-    const fullPath = path.join(dir, file.name);
+    const fullPath = path.posix.join(dir, file.name);
 
     if (file.isDirectory()) {
       // Recursively handle subdirectories
       routes = [...routes, ...getStaticRoutes(fullPath)];
-    } else if (file.name === 'page.tsx') {
+    } else if (file.name === 'page.tsx' && !fullPath.includes('[')) {
       // Handle the 'page.tsx' file
       const route = fullPath
         .replace(pagesDirectory, '') // remove base app directory from path
         .replace('/page.tsx', ''); // remove '/page.tsx' from path
 
+      // Fetch last modification time for each file
+      const { mtime } = fs.statSync(fullPath);
+
       routes.push({
-        url: `${baseUrl}${route === '/index' ? '' : route}`,
-        lastModified: new Date().toISOString().split('T')[0],
+        url: `${baseUrl}${route === '/index' ? '' : route}`.replace(/\/+$/, ''), // Remove trailing slashes
+        lastModified: mtime.toISOString().split('T')[0],
       });
     }
   });
 
   return routes;
 }
+
 
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
