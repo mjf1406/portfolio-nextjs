@@ -32,8 +32,7 @@ const testimonials = [
         job_title: "6th grade TOEFL student",
         workplace: "Avalon English",
         quote: "Teacher! Teacher! I'm so glad you're back! I've had so many different teachers here, but you! You are the best teacher I've ever had! ",
-        context:
-            "When I resumed being the TOEFL teacher again after a short break.",
+        context: "When I resumed being the TOEFL teacher after a short break.",
     },
     {
         name: "",
@@ -161,7 +160,7 @@ export default function Testimonials() {
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-gray-300 text-sm">
+                            <p className="text-gray-300 text-sm mb-5">
                                 {testimonial.context}
                             </p>
                             <p className="text-gray-300 text-base italic">
