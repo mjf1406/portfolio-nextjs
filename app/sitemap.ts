@@ -1,17 +1,47 @@
-import { getBlogPosts } from 'app/blog/utils'
+import fs from 'fs';
+import path from 'path';
+import { getBlogPosts } from 'app/blog/utils';
 
-export const baseUrl = 'https://portfolio-blog-starter.vercel.app'
+export const baseUrl = 'https://portfolio-nextjs-beige-one.vercel.app/';
+
+// Update this to the `app` directory if you're using Next.js `app` router
+const pagesDirectory = path.join(process.cwd(), 'app');
+
+// Helper function to recursively get all 'page.tsx' files in the app directory
+function getStaticRoutes(dir = pagesDirectory) {
+  const files = fs.readdirSync(dir, { withFileTypes: true });
+
+  let routes: { url: string; lastModified: string }[] = [];
+
+  files.forEach((file) => {
+    const fullPath = path.join(dir, file.name);
+
+    if (file.isDirectory()) {
+      // Recursively handle subdirectories
+      routes = [...routes, ...getStaticRoutes(fullPath)];
+    } else if (file.name === 'page.tsx') {
+      // Handle the 'page.tsx' file
+      const route = fullPath
+        .replace(pagesDirectory, '') // remove base app directory from path
+        .replace('/page.tsx', ''); // remove '/page.tsx' from path
+
+      routes.push({
+        url: `${baseUrl}${route === '/index' ? '' : route}`,
+        lastModified: new Date().toISOString().split('T')[0],
+      });
+    }
+  });
+
+  return routes;
+}
 
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
-  }))
+  }));
 
-  let routes = ['', '/blog'].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }))
+  let staticRoutes = getStaticRoutes();
 
-  return [...routes, ...blogs]
+  return [...staticRoutes, ...blogs];
 }

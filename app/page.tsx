@@ -1,21 +1,33 @@
-import { BlogPosts } from 'app/components/posts'
+import { BlogPosts } from "components/posts";
 
 export default function Page() {
-  return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
-      <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
-      </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
-    </section>
-  )
+    return (
+        <section className="space-y-5">
+            <div className="flex flex-col gap-5 justify-center items-center text-center">
+                <div className="text-sm uppercase">{`"No such thing as bad student, only bad teacher." —Mr. Miyagi, The Karate Kid`}</div>
+                <h1 className="text-5xl font-bold">Michael J. Fizgerald</h1>
+                <div className="text-xl">
+                    Elementary School Teacher, Web Developer, Programmer,
+                    Translator (Mandarin → English), D&D Forever DM, Cyclist
+                </div>
+                <div className="text-lg">
+                    <p>
+                        Highly accomplished homeroom teacher with nearly a
+                        decade of experience teaching ESL, math, science, and
+                        language arts who has leveraged in-class games for
+                        engaging lessons, and who has utilized Python, advanced
+                        Excel techniques, and other tools to gain valuable
+                        insights into students and their behaviors all in order
+                        to better educate them.
+                    </p>
+                </div>
+            </div>
+            <div className="my-8">
+                <h2 className="mb-8 text-2xl font-semibold tracking-tighter">
+                    Latest Blog Posts
+                </h2>
+                <BlogPosts />
+            </div>
+        </section>
+    );
 }
