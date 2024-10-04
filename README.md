@@ -21,6 +21,7 @@ Welcome to Mr. Monkey's teaching portfolio!
 -   philosophy: added skills for success
 -   philosophy: added compassion & empathy
 -   philosophy: added mindfulness
+-   added: reading time estimate to each blog entry
 
 ## Change Log
 
