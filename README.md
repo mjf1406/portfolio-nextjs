@@ -1,4 +1,4 @@
-# Michael J. Fitzgearld's Portfolio
+# Michael J. Fitzgerald's Portfolio
 
 Welcome to Mr. Monkey's teaching portfolio!
 
@@ -24,6 +24,11 @@ Welcome to Mr. Monkey's teaching portfolio!
 -   added: reading time estimate to each blog entry
 
 ## Change Log
+
+2024/10/05
+
+-   fixed up navigation on mobile and desktop
+-   fixed up images on /webapps and /philosophy
 
 2024/10/04
 

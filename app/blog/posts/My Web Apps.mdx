@@ -1,0 +1,110 @@
+---
+publishAt: 2024-02-07
+title: The Web Apps That I Have Built
+author: Michael Fitzgerald
+excerpt: Get introduced to all the web apps that I've built to improve my teaching experience and my students' learning experiences.
+image: ~/assets/images/blog/my-web-apps/The Web Apps That I Have Built.png
+category: Capstone
+tags:
+  - teaching
+  - technology
+  - classroom
+  - web app
+  - bespoke
+---
+
+import Image from 'next/image';
+import Link from 'next/link';
+
+# Bespoke Web Apps
+
+My programming journey began when I was back in the States in 2020. It all started when I wanted to play Dungeons and Dragons (D&D) online with my friends whom I met in Korea; they were all over the world now, so we needed a virtual tabletop (VTT). I picked [FoundryVTT](https://foundryvtt.com/) because of its customizability. Little did I know at the time that it required programming knowledge to gain the full benefits of its customizability. So it began.
+
+Since then, I've built several small local-only web apps. Local-only because I'm still a novice web developer and programmer, so service-side 'magic' scares me 😂. I did not start creating any of the below teaching-related web apps until I started teaching at Maple Bear in March of 2022 because I was not sure what kinds of tools I would need. Once I started teaching though, a deluge of ideas rushed down the mountain of my creative brain and boy have they helped me as a teacher and been a huge hit with my students!
+
+## Class Daily
+
+You know how you usually write your class schedule on the board before class starts? Well, I got tired of doing that because I thought of a better way. As I was planning for one of my lessons, the thought occurred to me to use the plan for the display on the board. "How could I do that?" I asked myself. How could I both plan and use that plan at the same time with very little extra work from me in order for the students to see our agenda for the day?
+
+I always do my basic lesson plan in Google Sheets, like below:
+
+<Image
+  src="/assets/images/blog/my-web-apps/image2.jpg"
+  alt="Target"
+  width={600}
+  height={400}
+/>
+
+The daily agenda does not need a lot of information as we go over each one as part of the introduction, or the students already know what it means.
+
+"AH HA! I can use the very same Google Sheet and upload it to a site to display on the computer in class!" I thought.
+
+That's exactly what I did. It looks like the below on the computer screen in my classroom. You'll notice a clock on the left side; that's Class Timers, which we will talk about next.
+
+<Image
+  src="/assets/images/blog/my-web-apps/image3.jpg"
+  alt="Target"
+  width={600}
+  height={400}
+/>
+
+Now, sadly, because I use GitHub and a CSV, that means that no one but me can use this site. Sorry 🙁. I do hope to have the time to create an online platform that combines Class Daily, Class Timers, and Random Student Tools into one site at some point.
+
+## Class Timers
+
+One of my teacher friends said, "\...externalizing the frontal lobe\..." when we were talking about how he handles the kids he is responsible for at his school. He is in charge of creating the IEPs for dozens of students. I had asked him what's the best thing I can do for them in my classroom and he said that great phrase above about externalizing their frontal lobes. So, I thought about a timer app that I would want and went looking for one that could satisfy the following requirements:
+
+1.  It must have nice colors
+2.  It must display the timer very large to be visible from anywhere in the classroom
+3.  It must use color and shape to identify each timer because I am color deficient, so I need the shapes
+4.  It must allow for the creation of custom timers
+5.  It must allow for the quick adjustment of active timers
+6.  It must support rotations with a customizable transition duration
+7.  It must allow for pausing and resuming of active timers
+
+Maybe my Google-fu failed me, but I did not find one that met those requirements, so I built my own. And guess what!? This site is usable by you! Please go try it out and give me feedback so that I can make it better 😀
+
+Do you remember the image above where Class Daily was on the right and Class Timers was on the left? That's what it looks like in class for the entire duration of the period. Every now and then, I'll start a timer using Class Timers and the screen might change to be like one of the below screenshots.
+
+<Image
+  src="/assets/images/blog/my-web-apps/image4.jpg"
+  alt="Target"
+  width={600}
+  height={400}
+/>
+
+<Image
+  src="/assets/images/blog/my-web-apps/image5.jpg"
+  alt="Target"
+  width={600}
+  height={400}
+/>
+
+You'll notice the difference in color and shape. My students immediately recognize that the turquoise diamond timer is a non-specific timer, just one I set for whatever reason in class. They also recognize the purple cloud timer to be Quick Game, as you can see from the name above the timer. This is the timer that a student gets to run any vocab game of their choice for review. This satisfies requirements 1, 2, 3, and 4.
+
+You'll also notice the buttons that are below the timer. This allows for quick adjustments of the active timer, which satisfies requirements 5 and 7.
+
+One thing the timer now gets used for that I had not thought of was during lunch time. At my current school, I supervise a kindergarten class during lunch time on Mondays, Wednesdays, and Fridays. One day, one of the students asked if they could change the shape and color of the timer, for I had always used the non-specific timer above. I did not think that they would want to do that, so we created a custom timer called Orange Bear Lunch Time. Each day, I let a different student pick the color and shape pair and rotate through the students. This is a huge hit! Nearly every day, I get multiple, "It's so pretty!" or "WOW! It's beautiful!" Kindergartners are so easy to please 🤣.
+
+## MagniText
+
+Have you heard of the Irrelevant Speech Effect? Well, any noise, especially speech, is incredibly distracting during silent work time and it impairs recall ([Gisselgård et al., 2004](https://doi.org/10.3758/bf03194948)) and it's worse for children ([Elliott, 2002](https://doi.org/10.1016/j.neuroimage.2004.02.031)). I use sign language to communicate simple things with students during this time, but what about more complex messages?
+
+Let's imagine a scenario where a student used the sign language for the bathroom to signal they need to use the restroom, but you do not want to let them go until their classmate has returned from the bathroom. You could go over and whisper this to them, potentially causing a distraction to nearby students, you could write it down on scratch paper, or you could use MagniText, just like the below images. On your phone, pull up the website, type the message in, then hit the checkmark to see the text get larger, large enough for a student to see from far away. If they cannot see it, simply walk a little closer or increase the font size.
+
+<Image
+  src="/assets/images/blog/my-web-apps/image6.jpg"
+  alt="MagniText with text magnified"
+  width={600}
+  height={400}
+/>
+
+## Random Classroom Tools
+
+I had a very specific problem at my current school. My students argued all the time about who was which position in line and it was always causing overblown conflict. So, like the budding programmer I am, instead of using a simple solution, like a chart in class, I made a web app!
+
+Currently, Random Classroom Tools has two tools: (1) randomly select a student, and (2) randomly order all students in the class.
+
+## Conclusion
+
+All of the websites that I've made have enhanced my experience as a teacher...

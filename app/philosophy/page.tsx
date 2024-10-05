@@ -323,7 +323,7 @@ export default function Philosophy() {
                             key={index}
                             className="border border-gray-400 dark:border-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
                         >
-                            <div className="relative w-full h-[200px] sm:h-[200px] md:h-[300px] lg:h-[500px] rounded-lg overflow-hidden">
+                            <div className="relative w-full h-[300px] sm:h-[300px] md:h-[300px] lg:h-[500px] rounded-lg overflow-hidden">
                                 <Image
                                     src={item.image}
                                     alt={item.name}
