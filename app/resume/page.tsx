@@ -66,7 +66,7 @@ export default function Resume() {
                             <a
                                 key={resume.name}
                                 href={resume.url}
-                                className="flex flex-1 items-center justify-between border hover:opacity-50 p-4 text-white rounded-lg shadow-lg transition"
+                                className="flex flex-1 items-center justify-between border hover:opacity-50 p-4 rounded-lg shadow-lg transition"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -93,7 +93,7 @@ export default function Resume() {
                             <a
                                 key={letter.name}
                                 href={letter.url}
-                                className="flex flex-1 items-center justify-between p-4 border hover:opacity-50 text-white rounded-lg shadow-lg transition"
+                                className="flex flex-1 items-center justify-between p-4 border hover:opacity-50 rounded-lg shadow-lg transition"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -120,7 +120,7 @@ export default function Resume() {
                             <a
                                 key={evaluation.evaluator}
                                 href={evaluation.url}
-                                className="flex flex-1 items-center justify-between p-4 border hover:opacity-50 text-white rounded-lg shadow-lg transition"
+                                className="flex flex-1 items-center justify-between p-4 border hover:opacity-50 rounded-lg shadow-lg transition"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

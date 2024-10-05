@@ -77,7 +77,7 @@ const webapps = [
             "I use it to generate seating charts, randomly assign jobs equitably, and randomly assign Chromebooks. I also use it to randomly pick students during class for things.",
         image: "/tujin/classquest.png",
         created: "2024/9",
-        status: "alpha",
+        status: "closed alpha",
     },
     {
         name: "Slotted",
@@ -90,7 +90,7 @@ const webapps = [
             "I used it to manage my class schedule every week. Within each class I get set our schedule for the day however I like, then display it nicely during class for all to see.",
         image: "/tujin/slotted.png",
         created: "2024/9",
-        status: "alpha",
+        status: "closed alpha",
     },
     {
         name: "The Sun to Scale",
@@ -122,12 +122,12 @@ const webapps = [
 
 const WebAppCard = ({ app }) => (
     <div className="border border-gray-400 dark:border-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
-        <div className="relative w-full h-64">
+        <div className="relative w-full h-[200px] sm:h-[200px] md:h-[300px] lg:h-[500px] rounded-lg overflow-hidden">
             <Image
                 src={app.image}
                 alt={app.name}
-                layout="fill"
-                objectFit="cover"
+                fill
+                className="object-cover"
             />
         </div>
         <div className="p-6">
@@ -160,7 +160,7 @@ const WebAppCard = ({ app }) => (
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-50 border border-gray-400 dark:border-gray-800 transition-colors duration-300"
+                className="inline-flex items-center px-4 py-2 rounded-md hover:opacity-50 border border-gray-400 dark:border-gray-800 transition-colors duration-300"
             >
                 Visit App
                 <ExternalLink className="ml-2 h-4 w-4" />

@@ -5,7 +5,7 @@ export default function Page() {
         <section className="space-y-5">
             <div className="flex flex-col gap-5 justify-center items-center text-center">
                 <div className="text-sm uppercase">{`"No such thing as bad student, only bad teacher." —Mr. Miyagi, The Karate Kid`}</div>
-                <h1 className="text-5xl font-bold">Michael J. Fizgerald</h1>
+                <h1 className="text-5xl font-bold">Michael J. Fitzgerald</h1>
                 <div className="text-xl">
                     Elementary School Teacher, Web Developer, Programmer,
                     Translator (Mandarin → English), D&D Forever DM, Cyclist

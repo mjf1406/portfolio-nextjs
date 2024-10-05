@@ -315,21 +315,23 @@ export default function Philosophy() {
             <h2 className="mb-8 text-2xl font-semibold tracking-tighter">
                 Core Teaching Philosophy Tenets
             </h2>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
                 {philosophy
                     .filter((item) => item.name) // Ensures only valid items with names are shown
                     .map((item, index) => (
                         <div
                             key={index}
-                            className="border border-gray-400 dark:border-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 text-xs"
+                            className="border border-gray-400 dark:border-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
                         >
-                            <Image
-                                src={item.image}
-                                alt={item.name}
-                                width={200}
-                                height={200}
-                                className="w-full h-[200px] object-cover mb-4 rounded-lg"
-                            />
+                            <div className="relative w-full h-[200px] sm:h-[200px] md:h-[300px] lg:h-[500px] rounded-lg overflow-hidden">
+                                <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    width={500}
+                                    height={500}
+                                    className="object-cover"
+                                />
+                            </div>
                             <h3 className="text-2xl font-semibold mb-3">
                                 {item.name}
                             </h3>

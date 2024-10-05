@@ -146,7 +146,7 @@ export default function Testimonials() {
                             <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 text-white">
+                                        <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-black text-white dark:bg-gray-400 dark:text-black">
                                             <User size={20} />
                                         </span>
                                     </div>
@@ -160,10 +160,10 @@ export default function Testimonials() {
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-gray-300 text-sm mb-5">
+                            <p className="dark:text-gray-300 text-gray-600 text-sm mb-5">
                                 {testimonial.context}
                             </p>
-                            <p className="text-gray-300 text-base italic">
+                            <p className="dark:text-gray-300 text-gray-800 text-base italic">
                                 "{testimonial.quote}"
                             </p>
                         </div>
