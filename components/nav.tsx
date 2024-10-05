@@ -22,7 +22,7 @@ const navItems = {
         name: "projects",
     },
     "/resume": {
-        name: "cv",
+        name: "resume",
     },
     "/testimonials": {
         name: "testimonials",
