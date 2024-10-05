@@ -25,6 +25,9 @@ const navItems = {
     "/resume": {
         name: "resume",
     },
+    "/stories": {
+        name: "stories",
+    },
     "/testimonials": {
         name: "testimonials",
     },

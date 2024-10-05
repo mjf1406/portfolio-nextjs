@@ -292,19 +292,6 @@ export default function Philosophy() {
             <h2 className="mb-8 text-3xl font-semibold tracking-tighter">
                 Philosophy
             </h2>
-            <h2 className="mb-8 text-3xl font-semibold tracking-tighter flex flex-col">
-                <div className="flex flex-row">
-                    <Construction
-                        size={30}
-                        className="mr-2"
-                    />{" "}
-                    Under Construction{" "}
-                </div>
-                <span className="text-xs tracking-normal font-normal">
-                    The data are placeholders as of{" "}
-                    {new Date("2024/10/04").toLocaleDateString()}.
-                </span>
-            </h2>
             {/* karate_kid_quote */}
             <div className="text-sm uppercase">{`"No such thing as bad student, only bad teacher." —Mr. Miyagi, The Karate Kid`}</div>
             {/* philosophy_subtitle */}
@@ -314,11 +301,29 @@ export default function Philosophy() {
                 approach and how it shapes everything I do.
             </h4>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima
-                excepturi eveniet labore accusantium eos, debitis
-                exercitationem, tempora omnis facere delectus ullam laboriosam.
-                Mollitia quaerat repudiandae dicta, ullam obcaecati aut
-                explicabo?
+                I like to treat my classroom as a community. As such, each
+                student will have their own responsibilities in the form of a
+                job. Students will rotate through these jobs every so often to
+                ensure they get a chance to perform the duties of each. These
+                jobs will hold each student accountable to every other student
+                in class. Each student will also be sent home with a welcome
+                packet that we will read in class. You can find the job
+                descriptions in this welcome packet should you be curious.
+            </p>
+            <p>
+                My teaching philosophy starts with forming a community of
+                learners by creating a safe environment where the students feel
+                comfortable, both physically and mentally. I like to do this by
+                making the students laugh and smile and have fun as much as
+                possible every day. My philosophy on teaching also utilizes
+                questions to answer the questions of my students so they can
+                feel empowered by answering their own questions. It also
+                revolves around teaching the students the strategies and giving
+                them the tools they need to be the best English learner and
+                individual that they can be. These strategies and tools are part
+                of each student’s repertoire that they will access on their own
+                more and more as the year progresses in order to complete the
+                assignments in their own creative way.
             </p>
             <h2 className="mb-8 text-2xl font-semibold tracking-tighter">
                 Core Teaching Philosophy Tenets
@@ -353,7 +358,7 @@ export default function Philosophy() {
                                     <li key={idx}>
                                         <strong>{point.name}:</strong>{" "}
                                         {point.description}{" "}
-                                        <a
+                                        {/* <a
                                             href={point.citation.url}
                                             target="_blank"
                                             className="text-blue-600 hover:text-blue-800 transition-colors flex items-center space-x-1"
@@ -362,7 +367,7 @@ export default function Philosophy() {
                                             <span className="italic hover:underline">
                                                 {point.citation.name}
                                             </span>
-                                        </a>
+                                        </a> */}
                                     </li>
                                 ))}
                             </ul>
