@@ -127,7 +127,7 @@ const WebAppCard = ({ app }) => (
                 src={app.image}
                 alt={app.name}
                 fill
-                className="object-cover"
+                className="object-contain"
             />
         </div>
         <div className="p-6">

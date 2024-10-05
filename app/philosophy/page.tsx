@@ -295,8 +295,8 @@ export default function Philosophy() {
                     Under Construction{" "}
                 </div>
                 <span className="text-xs tracking-normal font-normal">
-                    The data contents are placeholders as of{" "}
-                    {new Date().toLocaleDateString()}.
+                    The data are placeholders as of{" "}
+                    {new Date("2024/10/04").toLocaleDateString()}.
                 </span>
             </h2>
             <div className="text-sm uppercase">{`"No such thing as bad student, only bad teacher." —Mr. Miyagi, The Karate Kid`}</div>
@@ -327,11 +327,15 @@ export default function Philosophy() {
                                 <Image
                                     src={item.image}
                                     alt={item.name}
-                                    width={500}
-                                    height={500}
-                                    className="object-cover"
+                                    fill
+                                    className="object-contain" // or "object-cover" depending on your preference
+                                    sizes="(max-width: 640px) 100vw, 
+                                        (max-width: 768px) 100vw, 
+                                        (max-width: 1024px) 50vw, 
+                                        500px"
                                 />
                             </div>
+
                             <h3 className="text-2xl font-semibold mb-3">
                                 {item.name}
                             </h3>
