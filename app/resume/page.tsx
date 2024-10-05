@@ -55,15 +55,16 @@ const evaluations = [
 export default function Resume() {
     return (
         <section className="space-y-5">
+            {/* resume_title */}
             <h2 className="mb-8 text-3xl font-semibold tracking-tighter">
                 Resume
             </h2>
+            {/* resume_subtitle */}
             <h4 className="text-xl text-gray-600 dark:text-gray-400 mb-12">
                 Explore my professional journey, highlighting the skills,
                 experiences, and accomplishments that define my career path.
             </h4>
             <div className="flex flex-col gap-5 text-sm">
-                {/* Resume Downloads */}
                 <div>
                     <h3 className="text-xl mb-4">Resumes</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

@@ -184,9 +184,11 @@ const WebApps = () => {
     return (
         <section className="">
             <div className="container mx-auto px-4">
+                {/* webapps_title */}
                 <h1 className="font-semibold text-3xl mb-8 tracking-tighter">
                     WebApps
                 </h1>
+                {/* webapps_subtitle */}
                 <h4 className="text-xl text-gray-600 dark:text-gray-400 mb-12">
                     Explore the Web Apps I have built, why I built them, and how
                     I use them in class.

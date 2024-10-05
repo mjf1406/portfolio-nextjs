@@ -127,10 +127,11 @@ export default function Testimonials() {
 
     return (
         <section>
-            {/* Existing Testimonials Section */}
+            {/* testimonials_title */}
             <h1 className="font-semibold text-3xl mb-8 tracking-tighter">
                 Testimonials
             </h1>
+            {/* testimonials_subtitle */}
             <h4 className="text-xl text-gray-600 dark:text-gray-400 mb-12">
                 Discover what my colleagues and students have to say about me
                 and the meaningful impact I have had on them. Ask me about the

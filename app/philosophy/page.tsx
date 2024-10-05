@@ -288,6 +288,7 @@ export const metadata = {
 export default function Philosophy() {
     return (
         <section className="space-y-5">
+            {/* philosophy_title */}
             <h2 className="mb-8 text-3xl font-semibold tracking-tighter">
                 Philosophy
             </h2>
@@ -304,7 +305,9 @@ export default function Philosophy() {
                     {new Date("2024/10/04").toLocaleDateString()}.
                 </span>
             </h2>
+            {/* karate_kid_quote */}
             <div className="text-sm uppercase">{`"No such thing as bad student, only bad teacher." —Mr. Miyagi, The Karate Kid`}</div>
+            {/* philosophy_subtitle */}
             <h4 className="text-xl text-gray-600 dark:text-gray-400 mb-12">
                 Mr. Miyagi said it best! This captures my philosophy perfectly.
                 Dive in to discover why I wholeheartedly believe in this

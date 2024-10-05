@@ -73,9 +73,11 @@ export default function Projects() {
 
     return (
         <section className="space-y-10">
+            {/* projects_title */}
             <h2 className="mb-8 text-3xl font-semibold tracking-tighter">
                 Projects
             </h2>
+            {/* projects_subtitle */}
             <h4 className="text-xl text-gray-600 dark:text-gray-400 mb-12">
                 See how I made positive change at every place I have worked.
             </h4>
