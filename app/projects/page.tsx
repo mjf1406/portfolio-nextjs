@@ -61,6 +61,11 @@ const projects = [
     },
 ];
 
+export const metadata = {
+    title: "Projects",
+    description: "Discover my projects.",
+};
+
 export default function Projects() {
     const sortedProjects = projects.sort((a, b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();

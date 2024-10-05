@@ -1,4 +1,7 @@
-import { BlogPosts } from "components/posts";
+export const metadata = {
+    title: "About",
+    description: "Get to know Michael.",
+};
 
 export default function About() {
     return (

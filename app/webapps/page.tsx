@@ -2,6 +2,11 @@ import React from "react";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
+export const metadata = {
+    title: "WebApps",
+    description: "Learn about my WebApps.",
+};
+
 const webapps = [
     {
         name: "Class Daily",

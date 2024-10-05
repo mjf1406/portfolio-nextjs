@@ -3,6 +3,11 @@ import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 
+export const metadata = {
+    title: "Resume",
+    description: "Explore my professional journey.",
+};
+
 const resumes = [
     {
         name: "Elementary School Teacher",

@@ -280,6 +280,11 @@ const philosophy = [
     },
 ];
 
+export const metadata = {
+    title: "Teaching Philosophy",
+    description: "Understand my approach.",
+};
+
 export default function Philosophy() {
     return (
         <section className="space-y-5">

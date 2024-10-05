@@ -70,44 +70,17 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'));
 }
 
-export function formatDate(date: string | undefined, includeRelative = false) {
-  if (!date) {
-    console.error("Date is undefined or invalid.");
-    return "Invalid Date";  // You can replace this with a fallback or handle it appropriately.
+export function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  
+  if (isNaN(date.getTime())) {
+    console.error("Invalid date string provided.");
+    return "Invalid Date";
   }
 
-  let currentDate = new Date();
-  if (!date.includes('T')) {
-    date = `${date}T00:00:00`;
-  }
-  let targetDate = new Date(date);
+  const year = date.getFullYear();
+  const month = date.toLocaleString('default', { month: 'numeric' });
+  const day = date.getDate();
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  let daysAgo = currentDate.getDate() - targetDate.getDate();
-
-  let formattedDate = '';
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = 'Today';
-  }
-
-  let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  });
-
-  if (!includeRelative) {
-    return fullDate;
-  }
-
-  return `${fullDate} (${formattedDate})`;
+  return `${year}-${month}-${day}`;
 }
-
