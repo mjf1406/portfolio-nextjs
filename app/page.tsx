@@ -22,12 +22,6 @@ export default function Page() {
                     </p>
                 </div>
             </div>
-            <div className="my-8">
-                <h2 className="mb-8 text-2xl font-semibold tracking-tighter">
-                    Latest Blog Posts
-                </h2>
-                <BlogPosts />
-            </div>
         </section>
     );
 }

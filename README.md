@@ -4,9 +4,6 @@ Welcome to Mr. Monkey's teaching portfolio!
 
 ## To-do List
 
--   blog: added psychological effects in the classroom
--   blog: added the web apps that i have built
--   blog: added artificial intelligence in the upper elementary classroom
 -   blog: added more psychological effects in the classroom
 -   projects: added better english onboarding project
 -   projects: added avalon english TOEFL project
@@ -21,12 +18,15 @@ Welcome to Mr. Monkey's teaching portfolio!
 -   philosophy: added skills for success
 -   philosophy: added compassion & empathy
 -   philosophy: added mindfulness
--   added: reading time estimate to each blog entry
 
 ## Change Log
 
 2024/10/05
 
+-   added: reading time estimate to each blog entry
+-   blog: added psychological effects in the classroom
+-   blog: added the web apps that i have built
+-   blog: added artificial intelligence in the upper elementary classroom
 -   fixed up navigation on mobile and desktop
 -   fixed up images on /webapps and /philosophy
 

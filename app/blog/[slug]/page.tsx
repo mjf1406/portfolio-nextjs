@@ -91,6 +91,9 @@ export default function Blog({ params }) {
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                     {formatDate(post.metadata.publishedAt)}
                 </p>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                    {post.metadata.readingTime}
+                </p>
             </div>
             <article className="prose">
                 <CustomMDX source={post.content} />
