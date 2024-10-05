@@ -36,5 +36,16 @@
     "webapps": {
         "title": "网页应用",
         "subtitle": "探索我构建的网页应用程序，了解我为什么构建它们，以及我如何在课堂上使用它们。"
+    },
+    "nav": {
+        "home": "主页",
+        "about": "关于",
+        "blog": "博客",
+        "philosophy": "哲学",
+        "projects": "项目",
+        "resume": "简历",
+        "stories": "故事",
+        "testimonials": "推荐",
+        "webapps": "网页应用"
     }
 }

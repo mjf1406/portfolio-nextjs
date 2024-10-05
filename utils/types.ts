@@ -19,3 +19,7 @@ export interface EducationItem extends BaseItem {
     school: string;
     years: string;
 }
+
+export type Props = {
+    params: { locale: string };
+};

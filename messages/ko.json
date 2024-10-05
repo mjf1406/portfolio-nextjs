@@ -36,5 +36,16 @@
     "webapps": {
         "title": "웹앱",
         "subtitle": "제가 만든 웹앱을 탐색하고, 왜 만들었는지, 그리고 수업에서 어떻게 사용하는지 알아보세요."
+    },
+    "nav": {
+        "home": "홈",
+        "about": "소개",
+        "blog": "블로그",
+        "philosophy": "철학",
+        "projects": "프로젝트",
+        "resume": "이력서",
+        "stories": "이야기",
+        "testimonials": "후기",
+        "webapps": "웹앱"
     }
 }

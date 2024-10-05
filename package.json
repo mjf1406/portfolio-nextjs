@@ -12,8 +12,9 @@
         "@vercel/speed-insights": "^1.0.9",
         "framer-motion": "^11.11.1",
         "geist": "1.2.2",
+        "i18n": "^0.15.1",
         "lucide-react": "^0.447.0",
-        "next": "canary",
+        "next": "14.2.0-canary.62",
         "next-intl": "^3.20.0",
         "next-mdx-remote": "^4.4.1",
         "postcss": "^8.4.35",
@@ -21,7 +22,8 @@
         "react-dom": "18.2.0",
         "sugar-high": "^0.6.0",
         "tailwind-merge": "^2.5.3",
-        "tailwindcss": "4.0.0-alpha.13"
+        "tailwindcss": "4.0.0-alpha.13",
+        "twemoji": "^14.0.2"
     },
     "devDependencies": {
         "@types/node": "20.11.17",

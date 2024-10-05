@@ -36,5 +36,16 @@
     "webapps": {
         "title": "WebApps",
         "subtitle": "Explore the Web Apps I have built, why I built them, and how I use them in class."
+    },
+    "nav": {
+        "home": "home",
+        "about": "about",
+        "blog": "blog",
+        "philosophy": "philosophy",
+        "projects": "projects",
+        "resume": "resume",
+        "stories": "stories",
+        "testimonials": "testimonials",
+        "webapps": "webapps"
     }
 }

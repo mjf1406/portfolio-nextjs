@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { getBlogPosts } from 'src/app/blog/utils';
+import { getBlogPosts } from './[locale]/blog/utils';
 
 export const baseUrl = 'https://mr-monkey-portfolio.vercel.app';
 
