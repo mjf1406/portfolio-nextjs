@@ -75,7 +75,7 @@ const webapps = [
         name: "ClassQuest",
         one_sentence:
             "Earn rewards, unlock achievements, and transform everyday learning into an epic quest.",
-        url: "https://www.classquest.app/",
+        url: "https://www.classquest.src/app/",
         description:
             "It's a site that provides various tools, generators, and classroom management tools for teachers.",
         how_i_use:
@@ -114,7 +114,7 @@ const webapps = [
         name: "Reparper",
         one_sentence:
             "A mobile-friendly way to fill out Younghoon report cards.",
-        url: "https://report-card-helper.vercel.app/",
+        url: "https://report-card-helper.vercel.src/app/",
         description:
             "This site allows Younghoon organization members to complete their report cards without tedious PDF forms.",
         how_i_use:

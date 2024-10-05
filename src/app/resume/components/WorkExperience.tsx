@@ -1,4 +1,4 @@
-import Timeline from "components/ui/timeline";
+import Timeline from "src/components/ui/timeline";
 import { School, ChartLine, Languages } from "lucide-react";
 import React from "react";
 import { ExperienceItem } from "utils/types";

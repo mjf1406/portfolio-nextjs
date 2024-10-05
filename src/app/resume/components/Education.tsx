@@ -1,4 +1,4 @@
-import Timeline from "components/ui/timeline";
+import Timeline from "src/components/ui/timeline";
 import { GraduationCap } from "lucide-react";
 import { EducationItem } from "utils/types";
 

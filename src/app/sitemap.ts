@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { getBlogPosts } from 'app/blog/utils';
+import { getBlogPosts } from 'src/app/blog/utils';
 
 export const baseUrl = 'https://mr-monkey-portfolio.vercel.app';
 
 // Update this to the `app` directory if you're using Next.js `app` router
-const pagesDirectory = path.join(process.cwd(), 'app');
+const pagesDirectory = path.join(process.cwd(), 'src', 'app');
 
 // Helper function to recursively get all 'page.tsx' files in the app directory
 function getStaticRoutes(dir = pagesDirectory) {

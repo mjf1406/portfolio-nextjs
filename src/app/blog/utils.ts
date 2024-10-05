@@ -6,7 +6,7 @@ type Metadata = {
   publishedAt: string;
   summary: string;
   image?: string;
-  readingTime?: string; // New field to store estimated reading time
+  readingTime?: string;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -67,7 +67,7 @@ function getMDXData(dir: string) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'));
+  return getMDXData(path.join(process.cwd(), 'src', 'app', 'blog', 'posts'));
 }
 
 export function formatDate(dateString: string) {
