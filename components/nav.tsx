@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,6 +36,7 @@ const navItems = {
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -43,13 +45,22 @@ export function Navbar() {
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
+    useEffect(() => {
+        // Reset overflow and close menu when pathname changes
+        setIsOpen(false);
+        document.body.style.overflow = "unset";
+    }, [pathname]);
+
+    useEffect(() => {
+        // Cleanup function to reset overflow when component unmounts
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
-        if (!isOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
+        document.body.style.overflow = !isOpen ? "hidden" : "unset";
     };
 
     return (
