@@ -12,6 +12,7 @@
         "@vercel/speed-insights": "^1.0.9",
         "framer-motion": "^11.11.1",
         "geist": "1.2.2",
+        "gray-matter": "^4.0.3",
         "i18n": "^0.15.1",
         "lucide-react": "^0.447.0",
         "next": "14.2.0-canary.62",

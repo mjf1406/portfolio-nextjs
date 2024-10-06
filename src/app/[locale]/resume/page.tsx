@@ -2,6 +2,8 @@ import { Download, FileText, CheckCircle, ClipboardList } from "lucide-react";
 import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
+import { routing } from "src/i18n/routing";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata = {
     title: "Resume",
@@ -52,7 +54,12 @@ const evaluations = [
     },
 ];
 
-export default function Resume() {
+export default function Resume({
+    params: { locale },
+}: {
+    params: { locale: string };
+}) {
+    unstable_setRequestLocale(locale);
     return (
         <section className="space-y-5">
             {/* resume_title */}
@@ -150,4 +157,7 @@ export default function Resume() {
             <Skills />
         </section>
     );
+}
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

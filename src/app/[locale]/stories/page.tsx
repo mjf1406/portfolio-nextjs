@@ -1,5 +1,7 @@
 import { Construction, ExternalLink } from "lucide-react";
+import { unstable_setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import { routing } from "src/i18n/routing";
 
 const stories = [
     {
@@ -45,7 +47,12 @@ export const metadata = {
     description: "Meet the students on whom I've had the largest impact.",
 };
 
-export default function Philosophy() {
+export default function Philosophy({
+    params: { locale },
+}: {
+    params: { locale: string };
+}) {
+    unstable_setRequestLocale(locale);
     return (
         <section className="space-y-5">
             {/* philosophy_title */}
@@ -83,4 +90,7 @@ export default function Philosophy() {
             </div>
         </section>
     );
+}
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
 type Metadata = {
   title: string;
@@ -7,31 +8,26 @@ type Metadata = {
   summary: string;
   image?: string;
   readingTime?: string;
+  locale: string;
 };
 
 function parseFrontmatter(fileContent: string) {
-  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  let match = frontmatterRegex.exec(fileContent);
-  let frontMatterBlock = match![1];
-  let content = fileContent.replace(frontmatterRegex, '').trim();
-  let frontMatterLines = frontMatterBlock.trim().split('\n');
-  let metadata: Partial<Metadata> = {};
-
-  frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(': ');
-    let value = valueArr.join(': ').trim();
-    value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
-  });
-
-  // Estimate reading time (average person reads about 200 words per minute)
+  const { data, content } = matter(fileContent);
+  
   const wordsPerMinute = 200;
   const words = content.split(/\s+/).length;
   const readingTime = Math.ceil(words / wordsPerMinute);
 
-  metadata.readingTime = `${readingTime} min read`;
+  const metadata: Metadata = {
+    title: data.title || '',
+    publishedAt: data.publishedAt || '',
+    summary: data.summary || '',
+    image: data.image,
+    readingTime: `${readingTime} min read`,
+    locale: data.locale || 'en' // Default to 'en' if not specified
+  };
 
-  return { metadata: metadata as Metadata, content };
+  return { metadata, content };
 }
 
 function getMDXFiles(dir: string) {
@@ -39,25 +35,22 @@ function getMDXFiles(dir: string) {
 }
 
 function readMDXFile(filePath: string) {
-  let rawContent = fs.readFileSync(filePath, 'utf-8');
+  const rawContent = fs.readFileSync(filePath, 'utf-8');
   return parseFrontmatter(rawContent);
 }
 
 function generateSlug(title: string): string {
-  return title
+  return encodeURIComponent(title
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')  // Replace non-alphanumeric characters with dashes
-    .replace(/(^-|-$)+/g, '');     // Remove leading or trailing dashes
+    .replace(/[^a-z0-9\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf\uac00-\ud7af]+/g, '-')
+    .replace(/(^-|-$)+/g, ''));
 }
 
 function getMDXData(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
+  const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file));
-    
-    // Use the title to generate the slug if the file name contains spaces
-    let slug = generateSlug(metadata.title || path.basename(file, path.extname(file)));
-    
+    const { metadata, content } = readMDXFile(path.join(dir, file));
+    const slug = generateSlug(metadata.title);
     return {
       metadata,
       slug,
@@ -67,7 +60,24 @@ function getMDXData(dir: string) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'src', 'app', 'blog', 'posts'));
+  const postsDirectory = path.join(process.cwd(), 'posts');
+  
+  if (!fs.existsSync(postsDirectory)) {
+    console.warn(`No posts directory found at ${postsDirectory}`);
+    return [];
+  }
+  
+  return getMDXData(postsDirectory);
+}
+
+export function getAvailableLocales() {
+  const posts = getBlogPosts();
+  return Array.from(new Set(posts.map(post => post.metadata.locale)));
+}
+
+export function getBlogPostBySlug(locale: string, slug: string) {
+  const posts = getBlogPosts();
+  return posts.find(post => post.metadata.locale === locale && post.slug === slug);
 }
 
 export function formatDate(dateString: string) {

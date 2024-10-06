@@ -1,12 +1,21 @@
-import Link from "next/link";
-import { formatDate, getBlogPosts } from "src/app/[locale]/blog/utils";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { getBlogPosts, formatDate } from "src/app/[locale]/blog/utils";
+import { Link } from "src/i18n/routing";
 
-export function BlogPosts() {
-    let allBlogs = getBlogPosts();
+type BlogPostsProps = {
+    locale: string;
+};
+
+export async function BlogPosts({ locale }: BlogPostsProps) {
+    unstable_setRequestLocale(locale);
+    let allBlogs = await getBlogPosts();
+    let localizedBlogs = allBlogs.filter(
+        (post) => post.metadata.locale === locale
+    );
 
     return (
         <div>
-            {allBlogs
+            {localizedBlogs
                 .sort((a, b) => {
                     if (
                         new Date(a.metadata.publishedAt) >

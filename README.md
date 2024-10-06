@@ -10,6 +10,8 @@ Welcome to Mr. Monkey's teaching portfolio!
 -   stores: hyeyoon
 -   stories: rayeon
 -   stories: heyrin
+-   localization: each blog post will have a separate file for each language
+-   localization: having errors on literally every page due to dynamic vs. static rendering despiet following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
 
 ## Change Log
 

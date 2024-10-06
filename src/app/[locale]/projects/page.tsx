@@ -1,3 +1,6 @@
+import { unstable_setRequestLocale } from "next-intl/server";
+import { routing } from "src/i18n/routing";
+
 const projectsOld = [
     {
         name: "New Teacher Onboarding",
@@ -175,7 +178,12 @@ export const metadata = {
     description: "Discover my projects.",
 };
 
-export default function Projects() {
+export default function Projects({
+    params: { locale },
+}: {
+    params: { locale: string };
+}) {
+    unstable_setRequestLocale(locale);
     const sortedProjects = projects.sort((a, b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
@@ -234,4 +242,7 @@ export default function Projects() {
             </div>
         </section>
     );
+}
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { routing } from "src/i18n/routing";
 import { Props } from "utils/types";
 
 export default function Page({ params: { locale } }: Props) {
@@ -19,4 +20,8 @@ export default function Page({ params: { locale } }: Props) {
             </div>
         </section>
     );
+}
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

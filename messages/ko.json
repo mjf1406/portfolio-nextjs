@@ -47,5 +47,14 @@
         "stories": "이야기",
         "testimonials": "후기",
         "webapps": "웹앱"
+    },
+    "footer": {
+        "rss": "rss",
+        "github": "깃허브",
+        "linkedin": "링크드인",
+        "template": "템플릿",
+        "source": "소스 코드",
+        "license": "MIT 라이선스",
+        "translation_note": "번역은 제가 작성하고, 언어 교환을 통해 원어민이 교정하여 학습 기회를 제공합니다."
     }
 }

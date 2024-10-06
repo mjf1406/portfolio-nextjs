@@ -1,51 +1,83 @@
 import fs from 'fs';
 import path from 'path';
-import { getBlogPosts } from './[locale]/blog/utils';
+import { getBlogPosts, getAvailableLocales } from 'src/app/[locale]/blog/utils';
 
 export const baseUrl = 'https://mr-monkey-portfolio.vercel.app';
 
-// Update this to the `app` directory if you're using Next.js `app` router
 const pagesDirectory = path.join(process.cwd(), 'src', 'app');
 
-// Helper function to recursively get all 'page.tsx' files in the app directory
-function getStaticRoutes(dir = pagesDirectory) {
+interface SitemapEntry {
+  url: string;
+  lastModified: string;
+}
+
+function getStaticRoutes(dir = pagesDirectory, locale = ''): SitemapEntry[] {
   const files = fs.readdirSync(dir, { withFileTypes: true });
+  let routes: SitemapEntry[] = [];
 
-  let routes: { url: string; lastModified: string }[] = [];
-
-  files.forEach((file) => {
-    const fullPath = path.posix.join(dir, file.name);
-
+  for (const file of files) {
+    const fullPath = path.join(dir, file.name);
+    
     if (file.isDirectory()) {
-      // Recursively handle subdirectories
-      routes = [...routes, ...getStaticRoutes(fullPath)];
+      if (file.name === '[locale]') {
+        // Handle [locale] directory
+        const localeRoutes = getStaticRoutes(fullPath, locale);
+        routes = [...routes, ...localeRoutes];
+      } else if (!file.name.startsWith('_') && !file.name.startsWith('[')) {
+        // Recursively handle other non-dynamic subdirectories
+        const subRoutes = getStaticRoutes(fullPath, locale);
+        routes = [...routes, ...subRoutes];
+      }
     } else if (file.name === 'page.tsx' && !fullPath.includes('[')) {
-      // Handle the 'page.tsx' file
-      const route = fullPath
-        .replace(pagesDirectory, '') // remove base app directory from path
-        .replace('/page.tsx', ''); // remove '/page.tsx' from path
+      // Handle static page.tsx files
+      let route = fullPath
+        .replace(pagesDirectory, '')
+        .replace('/page.tsx', '')
+        .replace(/^\/\[locale\]/, '');
 
-      // Fetch last modification time for each file
+      if (locale) {
+        route = `/${locale}${route}`;
+      }
+
       const { mtime } = fs.statSync(fullPath);
-
       routes.push({
-        url: `${baseUrl}${route === '/index' ? '' : route}`.replace(/\/+$/, ''), // Remove trailing slashes
+        url: `${baseUrl}${route === '/index' ? '' : route}`.replace(/\/+$/, ''),
         lastModified: mtime.toISOString().split('T')[0],
       });
     }
-  });
+  }
 
   return routes;
 }
 
+export default async function sitemap(): Promise<SitemapEntry[]> {
+  const locales = getAvailableLocales();
+  let allRoutes: SitemapEntry[] = [];
 
-export default async function sitemap() {
-  let blogs = getBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+  // Generate static routes for each locale
+  for (const locale of locales) {
+    const staticRoutes = getStaticRoutes(pagesDirectory, locale);
+    allRoutes = [...allRoutes, ...staticRoutes];
+  }
+
+  // Generate blog post routes for each locale
+  const blogs = getBlogPosts();
+  for (const locale of locales) {
+    const localizedBlogs: SitemapEntry[] = blogs
+      .filter(post => post.metadata.locale === locale)
+      .map(post => ({
+        url: `${baseUrl}/${locale}/blog/${post.slug}`,
+        lastModified: post.metadata.publishedAt,
+      }));
+    allRoutes = [...allRoutes, ...localizedBlogs];
+  }
+
+  // Add routes for the root URL in each locale
+  const rootRoutes: SitemapEntry[] = locales.map(locale => ({
+    url: `${baseUrl}/${locale}`,
+    lastModified: new Date().toISOString().split('T')[0],
   }));
+  allRoutes = [...allRoutes, ...rootRoutes];
 
-  let staticRoutes = getStaticRoutes();
-
-  return [...staticRoutes, ...blogs];
+  return allRoutes;
 }

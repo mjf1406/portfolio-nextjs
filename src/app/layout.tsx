@@ -11,10 +11,6 @@ import { baseUrl } from "./sitemap";
 import { routing } from "src/i18n/routing";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-export function generateStaticParams() {
-    return routing.locales.map((locale) => ({ locale }));
-}
-
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
     title: {
@@ -53,10 +49,9 @@ export default function RootLayout({
     params: { locale: string };
 }) {
     unstable_setRequestLocale(locale);
-
     return (
         <html
-            lang="en"
+            lang={locale}
             className={cx(
                 "text-black bg-white dark:text-white dark:bg-black",
                 GeistSans.variable,
@@ -77,11 +72,15 @@ export default function RootLayout({
             <body className="antialiased">
                 <main className="flex-auto min-w-0 mt-3 flex flex-col w-full m-auto">
                     {children}
-                    <Footer />
+                    <Footer params={{ locale }} />
                     <Analytics />
                     <SpeedInsights />
                 </main>
             </body>
         </html>
     );
+}
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

@@ -1,11 +1,18 @@
+import { unstable_setRequestLocale } from "next-intl/server";
 import { BlogPosts } from "src/components/posts";
+import { routing } from "src/i18n/routing";
 
 export const metadata = {
     title: "Blog",
     description: "Read my blog.",
 };
 
-export default function Page() {
+export default async function Page({
+    params: { locale },
+}: {
+    params: { locale: string };
+}) {
+    unstable_setRequestLocale(locale);
     return (
         <section>
             {/* blog_title */}
@@ -17,7 +24,11 @@ export default function Page() {
                 Discover my thoughts and insights on teaching, web development,
                 and how these fields intersect.
             </h4>
-            <BlogPosts />
+            <BlogPosts locale={locale} />
         </section>
     );
+}
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

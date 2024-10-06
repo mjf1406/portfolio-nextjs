@@ -1,9 +1,21 @@
+import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { routing } from "src/i18n/routing";
+
 export const metadata = {
     title: "About",
     description: "Get to know Michael.",
 };
 
-export default function About() {
+export default function About({
+    params: { locale },
+}: {
+    params: { locale: string };
+}) {
+    unstable_setRequestLocale(locale);
+
+    const t = useTranslations("about");
+
     return (
         <section className="space-y-5">
             <div className="text-base">
@@ -39,4 +51,8 @@ export default function About() {
             </div>
         </section>
     );
+}
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
 }

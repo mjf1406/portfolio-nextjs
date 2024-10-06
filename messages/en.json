@@ -47,5 +47,14 @@
         "stories": "stories",
         "testimonials": "testimonials",
         "webapps": "webapps"
+    },
+    "footer": {
+        "rss": "rss",
+        "github": "github",
+        "linkedin": "linkedin",
+        "template": "template",
+        "source": "source",
+        "license": "MIT Licensed",
+        "translation_note": "Translations by me, proofread by natives during language exchanges for learning opportunities."
     }
 }

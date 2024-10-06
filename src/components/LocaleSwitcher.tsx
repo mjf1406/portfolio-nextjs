@@ -24,7 +24,7 @@ export function LocaleSwitcher() {
         <select
             value={locale}
             onChange={(e) => changeLocale(e.target.value)}
-            className="p-1 px-3"
+            className="p-1 px-3 border-none"
         >
             <option
                 className="bg-white dark:bg-black"

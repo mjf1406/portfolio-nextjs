@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { Props } from "utils/types";
+import { Link, usePathname } from "src/i18n/routing";
 
 const navItems = [
     { path: "/", nameKey: "home" },
@@ -19,7 +19,7 @@ const navItems = [
     { path: "/webapps", nameKey: "webapps" },
 ];
 
-export function Navbar() {
+export function Navbar({ params: { locale } }: Props) {
     const [isOpen, setIsOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const pathname = usePathname();
@@ -86,28 +86,30 @@ export function Navbar() {
                         </div>
 
                         {/* Navigation Links */}
-                        <AnimatePresence>
-                            {(isOpen || !isMobile) && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 absolute md:relative top-full left-0 md:top-auto md:left-auto w-full md:w-auto bg-white dark:bg-black md:bg-transparent p-4 md:p-0"
-                                >
-                                    {navItems.map(({ path, nameKey }) => (
-                                        <Link
-                                            key={path}
-                                            href={path}
-                                            className="transition-all hover:text-neutral-400 flex align-middle relative py-1 px-2"
-                                            onClick={() => setIsOpen(false)}
-                                        >
-                                            {t(nameKey)}
-                                        </Link>
-                                    ))}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                        {/* <AnimatePresence> */}
+                        {(isOpen || !isMobile) && (
+                            // <motion.div
+                            <div
+                                // initial={{ opacity: 0, y: -20 }}
+                                // animate={{ opacity: 1, y: 0 }}
+                                // exit={{ opacity: 0, y: -20 }}
+                                // transition={{ duration: 0.1 }}
+                                className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 absolute md:relative top-full left-0 md:top-auto md:left-auto w-full md:w-auto bg-white dark:bg-black md:bg-transparent p-4 md:p-0"
+                            >
+                                {navItems.map(({ path, nameKey }) => (
+                                    <Link
+                                        key={path}
+                                        href={path}
+                                        className="transition-all hover:text-neutral-400 flex align-middle relative py-1 px-2"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {t(nameKey)}
+                                    </Link>
+                                ))}
+                            </div>
+                            // </motion.div>
+                        )}
+                        {/* </AnimatePresence> */}
                     </nav>
                 </div>
             </aside>

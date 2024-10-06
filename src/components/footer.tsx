@@ -1,4 +1,7 @@
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
+import { Props } from "utils/types";
 
 function ArrowIcon() {
     return (
@@ -17,7 +20,11 @@ function ArrowIcon() {
     );
 }
 
-export default function Footer() {
+export default function Footer({ params: { locale } }: Props) {
+    unstable_setRequestLocale(locale);
+
+    const t = useTranslations("footer");
+
     return (
         <footer className="mb-16 w-full m-auto text-center">
             <ul className="font-sm mt-8 flex items-center justify-center flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
@@ -29,7 +36,7 @@ export default function Footer() {
                         href="/rss"
                     >
                         <ArrowIcon />
-                        <p className="ml-2 h-7">rss</p>
+                        <p className="ml-2 h-7">{t("rss")}</p>
                     </a>
                 </li>
                 <li>
@@ -40,7 +47,7 @@ export default function Footer() {
                         href="https://github.com/mjf1406"
                     >
                         <ArrowIcon />
-                        <p className="ml-2 h-7">github</p>
+                        <p className="ml-2 h-7">{t("github")}</p>
                     </a>
                 </li>
                 <li>
@@ -51,7 +58,7 @@ export default function Footer() {
                         href="https://www.linkedin.com/in/mfitz06/"
                     >
                         <ArrowIcon />
-                        <p className="ml-2 h-7">linkedin</p>
+                        <p className="ml-2 h-7">{t("linkedin")}</p>
                     </a>
                 </li>
                 <li>
@@ -62,7 +69,7 @@ export default function Footer() {
                         href="https://vercel.com/templates/next.js/portfolio-starter-kit"
                     >
                         <ArrowIcon />
-                        <p className="ml-2 h-7">template</p>
+                        <p className="ml-2 h-7">{t("template")}</p>
                     </a>
                 </li>
                 <li>
@@ -73,19 +80,18 @@ export default function Footer() {
                         href="https://github.com/mjf1406/portfolio-nextjs"
                     >
                         <ArrowIcon />
-                        <p className="ml-2 h-7">source</p>
+                        <p className="ml-2 h-7">{t("source")}</p>
                     </a>
                 </li>
             </ul>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300">
                 <LocaleSwitcher />
             </p>
-            <p className="text-xs mt-1">
-                Translations by me, proofread by natives during language
-                exchanges for learning opportunities.
+            <p className="text-xs mt-2 max-w-sm m-auto text-neutral-600 dark:text-neutral-300">
+                {t("translation_note")}
             </p>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300">
-                © {new Date().getFullYear()} MIT Licensed
+                © {new Date().getFullYear()} {t("license")}
             </p>
         </footer>
     );

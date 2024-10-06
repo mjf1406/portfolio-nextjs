@@ -46,6 +46,15 @@
         "resume": "简历",
         "stories": "故事",
         "testimonials": "推荐",
-        "webapps": "网页应用"
+        "webapps": "网页"
+    },
+    "footer": {
+        "rss": "RSS",
+        "github": "GitHub",
+        "linkedin": "领英",
+        "template": "模板",
+        "source": "源代码",
+        "license": "MIT 许可",
+        "translation_note": "翻译由我完成，在语言交流中经过母语者校对，创造学习机会。"
     }
 }

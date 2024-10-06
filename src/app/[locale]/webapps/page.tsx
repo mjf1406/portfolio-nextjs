@@ -1,6 +1,8 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { routing } from "src/i18n/routing";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata = {
     title: "WebApps",
@@ -174,7 +176,8 @@ const WebAppCard = ({ app }) => (
     </div>
 );
 
-const WebApps = () => {
+const WebApps = ({ params: { locale } }: { params: { locale: string } }) => {
+    unstable_setRequestLocale(locale);
     const sortedWebapps = [...webapps].sort((a, b) => {
         const dateA = new Date(`${a.created}/01`); // Adding a day to ensure valid date
         const dateB = new Date(`${b.created}/01`); // Adding a day to ensure valid date
@@ -207,3 +210,7 @@ const WebApps = () => {
 };
 
 export default WebApps;
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }));
+}

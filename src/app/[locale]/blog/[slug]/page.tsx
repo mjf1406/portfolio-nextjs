@@ -1,18 +1,37 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "src/components/mdx";
 import { baseUrl } from "src/app/sitemap";
-import { formatDate, getBlogPosts } from "../utils";
+import {
+    formatDate,
+    getBlogPosts,
+    getBlogPostBySlug,
+    getAvailableLocales,
+} from "../utils";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export async function generateStaticParams() {
-    let posts = getBlogPosts();
+    const locales = getAvailableLocales();
+    let params: Array<{ locale: string; slug: string }> = [];
 
-    return posts.map((post) => ({
-        slug: post.slug,
-    }));
+    for (const locale of locales) {
+        const posts = getBlogPosts();
+        params = params.concat(
+            posts.map((post) => ({ locale, slug: post.slug }))
+        );
+    }
+
+    return params;
 }
 
-export function generateMetadata({ params }) {
-    let post = getBlogPosts().find((post) => post.slug === params.slug);
+export function generateMetadata({
+    params,
+}: {
+    params: { locale: string; slug: string };
+}) {
+    unstable_setRequestLocale(params.locale);
+
+    let post = getBlogPostBySlug(params.locale, params.slug);
+
     if (!post) {
         return;
     }
@@ -35,7 +54,7 @@ export function generateMetadata({ params }) {
             description,
             type: "article",
             publishedTime,
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/${params.locale}/blog/${post.slug}`,
             images: [
                 {
                     url: ogImage,
@@ -51,8 +70,13 @@ export function generateMetadata({ params }) {
     };
 }
 
-export default function Blog({ params }) {
-    let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default function Blog({
+    params,
+}: {
+    params: { locale: string; slug: string };
+}) {
+    unstable_setRequestLocale(params.locale);
+    let post = getBlogPostBySlug(params.locale, params.slug);
 
     if (!post) {
         notFound();
@@ -73,10 +97,10 @@ export default function Blog({ params }) {
                         description: post.metadata.summary,
                         image: post.metadata.image
                             ? `${baseUrl}${post.metadata.image}`
-                            : `/og?title=${encodeURIComponent(
+                            : `${baseUrl}/og?title=${encodeURIComponent(
                                   post.metadata.title
                               )}`,
-                        url: `${baseUrl}/blog/${post.slug}`,
+                        url: `${baseUrl}/${params.locale}/blog/${post.slug}`,
                         author: {
                             "@type": "Person",
                             name: "My Portfolio",

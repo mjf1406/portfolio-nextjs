@@ -1,42 +1,51 @@
-import { baseUrl } from 'src/app/sitemap'
-import { getBlogPosts } from '../[locale]/blog/utils'
+import { getBlogPosts } from "../[locale]/blog/utils";
+
+type BlogPost = {
+  metadata: {
+    title: string;
+    publishedAt: string;
+    summary: string;
+    locale: string;
+  };
+  slug: string;
+  content: string;
+};
 
 export async function GET() {
-  let allBlogs = await getBlogPosts()
+  let allBlogs: BlogPost[] = await getBlogPosts();
 
   const itemsXml = allBlogs
     .sort((a, b) => {
       if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-        return -1
+        return -1;
       }
-      return 1
+      return 1;
     })
-    .map(
-      (post) =>
-        `<item>
-          <title>${post.metadata.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${post.metadata.summary || ''}</description>
-          <pubDate>${new Date(
-            post.metadata.publishedAt
-          ).toUTCString()}</pubDate>
-        </item>`
-    )
-    .join('\n')
+    .map((post) => `
+      <item>
+        <title>${post.metadata.title}</title>
+        <link>${process.env.NEXT_PUBLIC_SITE_URL}/${post.metadata.locale}/blog/${post.slug}</link>
+        <pubDate>${new Date(post.metadata.publishedAt).toUTCString()}</pubDate>
+        <description>${post.metadata.summary}</description>
+      </item>
+    `)
+    .join('');
 
-  const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
-  <rss version="2.0">
-    <channel>
-        <title>My Portfolio</title>
-        <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+  const feedXml = `
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+        <title>Your Blog Title</title>
+        <link>${process.env.NEXT_PUBLIC_SITE_URL}</link>
+        <description>Your Blog Description</description>
+        <language>en</language>
         ${itemsXml}
-    </channel>
-  </rss>`
+      </channel>
+    </rss>
+  `;
 
-  return new Response(rssFeed, {
+  return new Response(feedXml, {
     headers: {
-      'Content-Type': 'text/xml',
+      'Content-Type': 'application/xml',
     },
-  })
+  });
 }
