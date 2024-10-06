@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import twemoji from "twemoji";
 
 export function LocaleSwitcher() {
     const [locale, setLocale] = useState("en"); // Default locale
@@ -10,8 +9,6 @@ export function LocaleSwitcher() {
         // Get the current locale from the URL (if available)
         const currentLocale = window.location.pathname.split("/")[1];
         setLocale(currentLocale || "en"); // Fallback to "en" if no locale is set
-
-        twemoji.parse(document.body);
     }, []);
 
     const changeLocale = (newLocale: string) => {
