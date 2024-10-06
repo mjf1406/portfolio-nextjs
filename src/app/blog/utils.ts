@@ -29,7 +29,7 @@ function parseFrontmatter(fileContent: string) {
   const words = content.split(/\s+/).length;
   const readingTime = Math.ceil(words / wordsPerMinute);
 
-  metadata.readingTime = `${readingTime} min read`;
+  metadata.readingTime = `${readingTime} min. read`;
 
   return { metadata: metadata as Metadata, content };
 }

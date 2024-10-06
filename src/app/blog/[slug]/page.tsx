@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "src/components/mdx";
-import { formatDate, getBlogPosts } from "src/app/blog/utils";
+import { getBlogPosts } from "src/app/blog/utils";
 import { baseUrl } from "src/app/sitemap";
+import TableOfContents from "src/components/TableOfContents";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
     let posts = getBlogPosts();
@@ -52,52 +55,63 @@ export function generateMetadata({ params }) {
 }
 
 export default function Blog({ params }) {
-    let post = getBlogPosts().find((post) => post.slug === params.slug);
-
+    let post = getBlogPosts().find((post) => {
+        return post.slug === params.slug;
+    });
     if (!post) {
         notFound();
     }
 
     return (
-        <section>
-            <script
-                type="application/ld+json"
-                suppressHydrationWarning
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BlogPosting",
-                        headline: post.metadata.title,
-                        datePublished: post.metadata.publishedAt,
-                        dateModified: post.metadata.publishedAt,
-                        description: post.metadata.summary,
-                        image: post.metadata.image
-                            ? `${baseUrl}${post.metadata.image}`
-                            : `/og?title=${encodeURIComponent(
-                                  post.metadata.title
-                              )}`,
-                        url: `${baseUrl}/blog/${post.slug}`,
-                        author: {
-                            "@type": "Person",
-                            name: "My Portfolio",
-                        },
-                    }),
-                }}
-            />
-            <h1 className="title font-semibold text-2xl tracking-tighter">
-                {post.metadata.title}
-            </h1>
-            <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                    {formatDate(post.metadata.publishedAt)}
-                </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                    {post.metadata.readingTime}
-                </p>
-            </div>
-            <article className="prose">
-                <CustomMDX source={post.content} />
-            </article>
-        </section>
+        <div>
+            <section>
+                <script
+                    type="application/ld+json"
+                    suppressHydrationWarning
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BlogPosting",
+                            headline: post.metadata.title,
+                            datePublished: post.metadata.publishedAt,
+                            dateModified: post.metadata.publishedAt,
+                            description: post.metadata.summary,
+                            image: post.metadata.image
+                                ? `${baseUrl}${post.metadata.image}`
+                                : `/og?title=${encodeURIComponent(
+                                      post.metadata.title
+                                  )}`,
+                            url: `${baseUrl}/blog/${post.slug}`,
+                            author: {
+                                "@type": "Person",
+                                name: "My Portfolio",
+                            },
+                        }),
+                    }}
+                />
+                <Link
+                    href={"/blog"}
+                    className="hover:opacity-50 flex items-center"
+                >
+                    <ArrowLeft
+                        size={24}
+                        className="mr-1"
+                    />{" "}
+                    Back
+                </Link>
+                <div className="grid grid-cols-15">
+                    <article className="prose col-span-14">
+                        <CustomMDX
+                            source={post.content}
+                            publishedAt={post.metadata.publishedAt}
+                            readingTime={post.metadata.readingTime}
+                        />
+                    </article>
+                    <div className="col-span-1">
+                        <TableOfContents content={post.content} />
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 }
