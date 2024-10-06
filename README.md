@@ -11,9 +11,13 @@ Welcome to Mr. Monkey's teaching portfolio!
 -   stories: heyrin
 -   stories: ronald
 -   localization: each blog post will have a separate file for each language
--   localization: having errors on literally every page due to dynamic vs. static rendering despiet following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
+-   localization: having errors on literally every page due to dynamic vs. static rendering despite following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
 
 ## Change Log
+
+2024/10/06
+
+-   added a disclaimer to the blog
 
 2024/10/05
 
