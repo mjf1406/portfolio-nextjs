@@ -45,14 +45,14 @@ export const metadata = {
     description: "Meet the students on whom I've had the largest impact.",
 };
 
-export default function Philosophy() {
+export default function Stories() {
     return (
         <section className="space-y-5">
-            {/* philosophy_title */}
+            {/* stories_title */}
             <h2 className="mb-8 text-3xl font-semibold tracking-tighter">
                 Impactful Stories
             </h2>
-            {/* philosophy_subtitle */}
+            {/* stories_subtitle */}
             <h4 className="text-xl text-gray-600 dark:text-gray-400 mb-12">
                 Read the stories of the students I had the greatest impact on.
                 Each name below is a pseudonym.
