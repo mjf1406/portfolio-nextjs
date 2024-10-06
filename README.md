@@ -6,10 +6,10 @@ Welcome to Mr. Monkey's teaching portfolio!
 
 -   blog: added more psychological effects in the classroom
 -   add links to /resume work experience to /projects#name where applicable
--   consider adding a /stories where visitors can read short stories about students I have had a great impact on
--   stores: hyeyoon
+-   stories: hyeyoon
 -   stories: rayeon
 -   stories: heyrin
+-   stories: ronald
 -   localization: each blog post will have a separate file for each language
 -   localization: having errors on literally every page due to dynamic vs. static rendering despiet following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
 
