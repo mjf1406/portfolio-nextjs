@@ -80,6 +80,10 @@ export default function Footer() {
             <p className="mt-4 text-neutral-600 dark:text-neutral-300">
                 <LocaleSwitcher />
             </p>
+            <p className="text-xs mt-1">
+                Translations by me, proofread by natives during language
+                exchanges for learning opportunities.
+            </p>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300">
                 © {new Date().getFullYear()} MIT Licensed
             </p>
