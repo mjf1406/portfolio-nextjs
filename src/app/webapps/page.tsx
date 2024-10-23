@@ -123,6 +123,19 @@ const webapps = [
         created: "2024/7",
         status: "beta",
     },
+    {
+        name: "Ozobot Maze Generator",
+        one_sentence:
+            "A website used to create mazes for students to solve using Ozobot.",
+        url: "https://ozobot-maze.vercel.app/",
+        description:
+            "This site can be used by teachers to create mazes for students to solve using their Ozobot from easy to hard and custom difficulties using varying paper sizes.",
+        how_i_use:
+            "At Younghoon, the 6th grade team uses this for one of their camps. The 5th grade team uses it from one of their modules.",
+        image: "/tujin/ozobot-maze.png",
+        created: "2024/10",
+        status: "WIP",
+    },
 ];
 
 const WebAppCard = ({ app }) => (
