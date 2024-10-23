@@ -126,7 +126,7 @@ const webapps = [
     {
         name: "Ozobot Maze Generator",
         one_sentence:
-            "A website to create mazes for students to solve using Ozobot.",
+            "A website used to create mazes for students to solve using Ozobot.",
         url: "https://ozobot-maze.vercel.app/",
         description:
             "This site can be used by teachers to create mazes for students to solve using their Ozobot from easy to hard and custom difficulties using varying paper sizes.",
