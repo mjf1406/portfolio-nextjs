@@ -131,7 +131,7 @@ const webapps = [
         description:
             "This site can be used by teachers to create mazes for students to solve using their Ozobot from easy to hard and custom difficulties using varying paper sizes.",
         how_i_use:
-            "At Younghoon, the 6th grade team uses this for one of their camps and the 5th grade team uses it for one of their modules.",
+            "At Younghoon, I used it for a math activity about transforming shapes. Students got to practice reading the Color Codes in different orientations, thereby practicing their transformation skills.",
         image: "/tujin/ozobot-maze.png",
         created: "2024/10",
         status: "WIP",
