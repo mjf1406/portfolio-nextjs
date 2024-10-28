@@ -10,7 +10,6 @@ const experience: ExperienceItem[] = [
         dates: "March 2024 - present",
         icon: School,
         responsibilities: [
-            "Promoted to science lead for 5th grade after 1 month on the job",
             "Taught writing, literacy, presentations, math, and science to 5th grade Korean students",
             "Integrated bespoke webapps into the classroom",
             "Tracked student progress in gradebook",
