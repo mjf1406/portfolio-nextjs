@@ -136,6 +136,44 @@ const webapps = [
         created: "2024/10",
         status: "WIP",
     },
+    {
+        name: "Site Sprout",
+        one_sentence:
+            "The place for teaching upper elementary students the parts of websites.",
+        url: "https://site-sprout-lac.vercel.app/",
+        description:
+            "Site Sprout is an interactive educational platform designed to teach upper elementary students the fundamental components of websites. Through engaging lessons and hands-on activities, students learn about various web elements such as headers, footers, navigation menus, and content sections, fostering a foundational understanding of web design and development.",
+        how_i_use:
+            "I used it as part of our Text Features module to help kids learn the different parts of websites at Younghoon.",
+        image: "/tujin/site-sprout.png",
+        created: "2025/01",
+        status: "WIP",
+    },
+    {
+        name: "ASL For Silent Time",
+        one_sentence: "Your place for free ASL resources for teachers.",
+        url: "https://asl-rho.vercel.app/",
+        description:
+            "ASL For Silent Time is a dedicated platform offering free American Sign Language resources tailored for educators. The website provides an extensive library of ASL signs, instructional guides, and interactive tools to help teachers integrate sign language into their classrooms, facilitating effective communication during silent time and promoting an inclusive learning environment.",
+        how_i_use:
+            "I use it to generate all the ASL signs I need for my classroom during silent time.",
+        image: "/tujin/asl.png",
+        created: "2024/11",
+        status: "WIP",
+    },
+    // {
+    //     name: "",
+    //     one_sentence:
+    //         "",
+    //     url: "",
+    //     description:
+    //         "",
+    //     how_i_use:
+    //         "",
+    //     image: "/tujin/",
+    //     created: "",
+    //     status: "",
+    // },
 ];
 
 const WebAppCard = ({ app }) => (
