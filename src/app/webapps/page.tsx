@@ -119,7 +119,7 @@ const webapps = [
             "This site allows Younghoon organization members to complete their report cards without tedious PDF forms.",
         how_i_use:
             "I built this after frustration and tedium filling out the semester 1 report cards to make it easier on me and other teachers to fulfill their report card requirements.",
-        image: "/tujin/repot-card-helper.png",
+        image: "/tujin/report-card-helper.png",
         created: "2024/7",
         status: "beta",
     },
