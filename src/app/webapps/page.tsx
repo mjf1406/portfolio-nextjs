@@ -111,7 +111,7 @@ const webapps = [
         status: "feature complete",
     },
     {
-        name: "Reparper",
+        name: "Report Card Helper",
         one_sentence:
             "A mobile-friendly way to fill out Younghoon report cards.",
         url: "https://report-card-helper.vercel.src/app/",
@@ -119,7 +119,7 @@ const webapps = [
             "This site allows Younghoon organization members to complete their report cards without tedious PDF forms.",
         how_i_use:
             "I built this after frustration and tedium filling out the semester 1 report cards to make it easier on me and other teachers to fulfill their report card requirements.",
-        image: "/tujin/reparper.png",
+        image: "/tujin/repot-card-helper.png",
         created: "2024/7",
         status: "beta",
     },
@@ -160,6 +160,19 @@ const webapps = [
         image: "/tujin/asl.png",
         created: "2024/11",
         status: "WIP",
+    },
+    {
+        name: "Reparper",
+        one_sentence:
+            "A I built to streamline creating report cards at Younghoon.",
+        url: "https://reparper.vercel.app/",
+        description:
+            "Using a GOogle Sheets templates, teachers can save time on the  mundane task of manually copying data into PDF report cards..",
+        how_i_use:
+            "I use it at the end of each semester to fill out my Younghoon report cards.",
+        image: "/tujin/reparper.png",
+        created: "2025/01",
+        status: "Beta",
     },
     // {
     //     name: "",
