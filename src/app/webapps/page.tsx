@@ -164,12 +164,12 @@ const webapps = [
     {
         name: "Reparper",
         one_sentence:
-            "A I built to streamline creating report cards at Younghoon.",
+            "A basic site I built to streamline creating report cards at Younghoon.",
         url: "https://reparper.vercel.app/",
         description:
-            "Using a GOogle Sheets templates, teachers can save time on the  mundane task of manually copying data into PDF report cards..",
+            "Using a Google Sheets templates, teachers can save time on the  mundane task of manually copying data into PDF report cards.",
         how_i_use:
-            "I use it at the end of each semester to fill out my Younghoon report cards.",
+            "I use it at the end of each semester to fill out my Younghoon report cards. What once used to take about an hour, more if I was really procrastinating because it was so mind-numbing, now only takes 1 minutes on the site!",
         image: "/tujin/reparper.png",
         created: "2025/01",
         status: "Beta",
