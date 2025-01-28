@@ -75,7 +75,7 @@ const webapps = [
         name: "ClassQuest",
         one_sentence:
             "Earn rewards, unlock achievements, and transform everyday learning into an epic quest.",
-        url: "https://www.classquest.src/app/",
+        url: "https://www.classquest.app",
         description:
             "It's a site that provides various tools, generators, and classroom management tools for teachers.",
         how_i_use:
