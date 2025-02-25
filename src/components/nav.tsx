@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -6,33 +8,46 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navItems = {
+export const navItems = {
     "/": {
         name: "home",
+        description: "Welcome landing page",
     },
     "/about": {
         name: "about",
+        description: "Learn more about me as a teacher",
     },
     "/blog": {
         name: "blog",
+        description: "Latest articles and updates",
     },
     "/philosophy": {
         name: "philosophy",
+        description: "My core beliefs and ideas about teaching",
     },
     "/projects": {
         name: "projects",
+        description: "Showcasing the teaching projects throughout my career",
     },
     "/resume": {
         name: "resume",
+        description: "Professional skills and work history",
     },
     "/stories": {
         name: "stories",
+        description: "The positive effects I've had on my students",
     },
     "/testimonials": {
         name: "testimonials",
+        description: "Feedback from students and colleagues",
     },
     "/webapps": {
         name: "webapps",
+        description: "The web apps I have built",
+    },
+    "/3d_printing": {
+        name: "3d printing",
+        description: "3D printing designs I have built",
     },
 };
 

@@ -1,3 +1,7 @@
+/** @format */
+
+import NavGrid from "src/components/navGrid";
+
 export default function Page() {
     return (
         <section className="space-y-5">
@@ -8,7 +12,8 @@ export default function Page() {
                 {/* home_blurb */}
                 <div className="text-xl">
                     Elementary School Teacher, Web Developer, Programmer,
-                    Translator (Mandarin → English), D&D Forever DM, Cyclist
+                    Translator (Mandarin → English), D&D Forever DM, Cyclist, 3D
+                    Printer, 3D Modeler
                 </div>
                 {/* home_intro */}
                 <div className="text-lg">
@@ -22,6 +27,7 @@ export default function Page() {
                         to better educate them.
                     </p>
                 </div>
+                <NavGrid />
             </div>
         </section>
     );

@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Michael J. Fitzgerald's Portfolio
 
 Welcome to Mr. Monkey's teaching portfolio!
@@ -12,8 +14,14 @@ Welcome to Mr. Monkey's teaching portfolio!
 -   stories: ronald
 -   localization: each blog post will have a separate file for each language
 -   localization: having errors on literally every page due to dynamic vs. static rendering despite following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
+-   update 3d printing page with content
 
 ## Change Log
+
+2025/02/25
+
+-   added 3d printing page, but has no content
+-   added nav cards to the home page
 
 2025/01/09
 
