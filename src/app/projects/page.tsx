@@ -1,3 +1,5 @@
+/** @format */
+
 const projectsOld = [
     {
         name: "New Teacher Onboarding",
@@ -69,18 +71,18 @@ const projectsOld = [
         workplace: "Younghoon Elementary",
         date: "2024/7",
     },
-    {
-        name: "Bespoke AI Tutors",
-        one_sentence:
-            "Setup website for teachers to create RAG-utilizing LLM tutors.",
-        description:
-            "I set up a website hosted at my server at my home that connects to Open AI's API to create retrieval augmented generation-capable (RAG) large language model (LLM) tutors specific to any content the teacher specifies. I led a professional development (PD) session where I trained the teachers how to set them up.",
-        example:
-            "I had some free time, with which I like to think hard about new ideas for my classroom and I had this one. I thought to create one that has access to the review materials for the final exam of the module (module test). I taught my students how to interact with it in a quick 40-minute lesson and informed them of LLM limitations, ethics, and safety concerns. I set up each tutor in such a way that it will only guide the students who chat with it, never offering an answer. It will also direct them to search for the material first before it tells them, then will only walk them through an example, going step-by-step.",
-        role: "5th Grade Homeroom",
-        workplace: "Younghoon",
-        date: "2024/10",
-    },
+    // {
+    //     name: "Bespoke AI Tutors",
+    //     one_sentence:
+    //         "Setup website for teachers to create RAG-utilizing LLM tutors.",
+    //     description:
+    //         "I set up a website hosted at my server at my home that connects to Open AI's API to create retrieval augmented generation-capable (RAG) large language model (LLM) tutors specific to any content the teacher specifies. I led a professional development (PD) session where I trained the teachers how to set them up.",
+    //     example:
+    //         "I had some free time, with which I like to think hard about new ideas for my classroom and I had this one. I thought to create one that has access to the review materials for the final exam of the module (module test). I taught my students how to interact with it in a quick 40-minute lesson and informed them of LLM limitations, ethics, and safety concerns. I set up each tutor in such a way that it will only guide the students who chat with it, never offering an answer. It will also direct them to search for the material first before it tells them, then will only walk them through an example, going step-by-step.",
+    //     role: "5th Grade Homeroom",
+    //     workplace: "Younghoon",
+    //     date: "2024/10",
+    // },
 ];
 
 const projects = [
@@ -156,18 +158,18 @@ const projects = [
         workplace: "Younghoon Elementary",
         date: "2024/7",
     },
-    {
-        name: "Bespoke AI Tutors",
-        one_sentence:
-            "Developed a website for teachers to create RAG-based LLM tutors for customized learning.",
-        description:
-            "Created a website for teachers to generate RAG-powered LLM tutors connected to specific content, helping students receive tailored guidance. Led a professional development session to train teachers on how to set up and use the tutors.",
-        example:
-            "I set up a tutor for a final exam review, teaching students how to interact with it. The tutor guided students through problem-solving without providing direct answers and encouraged them to search for materials before offering any assistance.",
-        role: "5th Grade Homeroom",
-        workplace: "Younghoon",
-        date: "2024/10",
-    },
+    // {
+    //     name: "Bespoke AI Tutors",
+    //     one_sentence:
+    //         "Developed a website for teachers to create RAG-based LLM tutors for customized learning.",
+    //     description:
+    //         "Created a website for teachers to generate RAG-powered LLM tutors connected to specific content, helping students receive tailored guidance. Led a professional development session to train teachers on how to set up and use the tutors.",
+    //     example:
+    //         "I set up a tutor for a final exam review, teaching students how to interact with it. The tutor guided students through problem-solving without providing direct answers and encouraged them to search for materials before offering any assistance.",
+    //     role: "5th Grade Homeroom",
+    //     workplace: "Younghoon",
+    //     date: "2024/10",
+    // },
 ];
 
 export const metadata = {

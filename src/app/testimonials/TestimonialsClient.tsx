@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 
 import { User, X } from "lucide-react";
@@ -93,7 +95,7 @@ const testimonials = [
         job_title: "4th Grade Student",
         workplace: "Avalon English",
         quote: "I will miss you, Mr. Monkey. Don't forget me.",
-        context: "It was my last at Avalon English.",
+        context: "It was my last day at Avalon English.",
     },
 ];
 

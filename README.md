@@ -6,20 +6,28 @@ Welcome to Mr. Monkey's teaching portfolio!
 
 ## To-do List
 
+-   fix up the teaching philosophy tenets
 -   blog: added more psychological effects in the classroom
 -   add links to /resume work experience to /projects#name where applicable
+-   localization: each blog post will have a separate file for each language
+-   localization: having errors on literally every page due to dynamic vs. static rendering despite following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
+
+### p1
+
 -   stories: hyeyoon
 -   stories: rayeon
 -   stories: heyrin
 -   stories: ronald
--   localization: each blog post will have a separate file for each language
--   localization: having errors on literally every page due to dynamic vs. static rendering despite following [the docs](https://next-intl-docs.vercel.app/docs/getting-started/app-router/with-i18n-routing#static-rendering) to a T
--   update 3d printing page with content
+
+### p0
+
+-   add 3d printing links to the models
 
 ## Change Log
 
 2025/02/25
 
+-   added 3d printing content
 -   added 3d printing page, but has no content
 -   added nav cards to the home page
 

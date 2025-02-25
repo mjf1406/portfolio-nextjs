@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
@@ -44,7 +46,7 @@ const webapps = [
             "I use this to show students a quick message that does not require a reply during silent work. The messages are easy to read because they are blown up to take up my phone's entire screen.",
         image: "/tujin/magnitext.jpg",
         created: "2023/12",
-        status: "abandoned - will incorporate into ClassQuest",
+        status: "abandoned - will incorporate into ClassClarus",
     },
     {
         name: "Random Classroom Tools",
@@ -56,7 +58,7 @@ const webapps = [
             "I use this to randomly determine the line order for dismissal. The app is great for this because it ensures that every student goes first and last at least once before anyone goes first or last again. I also let the student who was last for the previous dismissal push the Sort button. Many students enthusiastically look forward to this.",
         image: "/tujin/Random Classroom Tools.png",
         created: "2022",
-        status: "abandoned - incorporated into ClassQuest",
+        status: "abandoned - incorporated into ClassClarus",
     },
     {
         name: "Worksheet Generators",
@@ -69,13 +71,13 @@ const webapps = [
             "I use this to generate word searches, crossword puzzles, and mazes for Ozobot that students can solve.",
         image: "/tujin/word-search-gen.png",
         created: "2023",
-        status: "abandoned - will incorporate into ClassQuest",
+        status: "abandoned - will incorporate into ClassClarus",
     },
     {
-        name: "ClassQuest",
+        name: "ClassClarus",
         one_sentence:
             "Earn rewards, unlock achievements, and transform everyday learning into an epic quest.",
-        url: "https://www.classquest.app",
+        url: "https://www.classclarus.com",
         description:
             "It's a site that provides various tools, generators, and classroom management tools for teachers.",
         how_i_use:
@@ -110,19 +112,19 @@ const webapps = [
         created: "2024/5",
         status: "feature complete",
     },
-    {
-        name: "Report Card Helper",
-        one_sentence:
-            "A mobile-friendly way to fill out Younghoon report cards.",
-        url: "https://report-card-helper.vercel.src/app/",
-        description:
-            "This site allows Younghoon organization members to complete their report cards without tedious PDF forms.",
-        how_i_use:
-            "I built this after frustration and tedium filling out the semester 1 report cards to make it easier on me and other teachers to fulfill their report card requirements.",
-        image: "/tujin/report-card-helper.png",
-        created: "2024/7",
-        status: "beta",
-    },
+    // {
+    //     name: "Report Card Helper",
+    //     one_sentence:
+    //         "A mobile-friendly way to fill out Younghoon report cards.",
+    //     url: "https://report-card-helper.vercel.src/app/",
+    //     description:
+    //         "This site allows Younghoon organization members to complete their report cards without tedious PDF forms.",
+    //     how_i_use:
+    //         "I built this after frustration and tedium filling out the semester 1 report cards to make it easier on me and other teachers to fulfill their report card requirements.",
+    //     image: "/tujin/report-card-helper.png",
+    //     created: "2024/7",
+    //     status: "beta",
+    // },
     {
         name: "Ozobot Maze Generator",
         one_sentence:
@@ -159,7 +161,7 @@ const webapps = [
             "I use it to generate all the ASL signs I need for my classroom during silent time.",
         image: "/tujin/asl.png",
         created: "2024/11",
-        status: "WIP",
+        status: "1.0 released on 2025/02/27",
     },
     {
         name: "Reparper",
